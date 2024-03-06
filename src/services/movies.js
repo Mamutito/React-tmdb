@@ -8,33 +8,33 @@ export const searchMovies = async ({ search }) => {
     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`)
     const json = await response.json()
 
-    const movies = json.Search
+    const movies = json.results
 
-    return movies?.map(movie => ({
-      id: movie.imdbID,
+/*     setMovies(movies?.map(movie => ({
+      id: movie.id,
       title: movie.Title,
-      year: movie.Year,
-      image: movie.Poster
-    }))
+      year: movie.release_date,
+      image: movie.poster_path,
+      popularity: movie.popularity
+    }))) */
   } catch (e) {
     throw new Error('Error searching movies')
   }
 }
 
-export const popularMovies = async (setMovies) => {
+export const trendingMovies = async (setMovies) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       const json = await response.json()
       const movies = json.results
-      console.log(movies);
       setMovies(movies?.map(movie => ({
         id: movie.id,
-        title: movie.Title,
+        title: movie.title,
         year: movie.release_date,
         image: movie.poster_path,
         popularity: movie.popularity
       })))
     } catch (e) {
-      throw new Error('Error searching movies')
+      throw new Error('Error getting popular movies')
     }
   }

@@ -35,6 +35,10 @@
   .nav-link:hover {
     text-decoration: underline;
   }
+
+  .nav-link.active {
+    color: #307e6c;
+  }
   
   .search-bar {
     display: flex; /* Utiliza flexbox para alinear los elementos del search-bar */
