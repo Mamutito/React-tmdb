@@ -1,24 +1,27 @@
-import Home from "./Home";
+import Home from "./pages/Home";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Favorite from "./Favorite";
-import Login from "./Login";
-import MovieDetails from "./MovieDetails";
+import Favorite from "./pages/Favorite";
+import Login from "./pages/Login";
+import MovieDetails from "./pages/MovieDetails";
+import { AuthProvider } from "./auth/AuthContext";
 
 const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <div className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/favorites" element={<Favorite />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/movie/:id" element={<MovieDetails />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar />
+        <div className="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/favorites" element={<Favorite />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/movie/:id" element={<MovieDetails />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
