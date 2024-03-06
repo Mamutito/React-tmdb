@@ -1,10 +1,8 @@
-import React, { useState } from "react";
 import "./MovieFavoriteButton.css";
 import { useAuth } from "../auth/AuthContext";
 
 const MovieFavoriteButton = ({ movieId }) => {
-  const { addToFavorites, removeFromFavorites, isFavorite, favorites } =
-    useAuth();
+  const { addToFavorites, removeFromFavorites, isFavorite } = useAuth();
   const movieIsFavorite = isFavorite(movieId);
 
   const toggleFavorite = () => {
@@ -13,7 +11,6 @@ const MovieFavoriteButton = ({ movieId }) => {
     } else {
       addToFavorites(movieId);
     }
-    console.log(favorites);
     // Send to the api the petition using the movieId
   };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import MovieFavoriteButton from "./MovieFavoriteButton";
 
-const MovieInfo = ({ movie }) => {
+const MovieInfo = ({ movie, user }) => {
   return (
     <div className="movie-info">
       <h2>{movie.title}</h2>
@@ -18,8 +18,7 @@ const MovieInfo = ({ movie }) => {
         <strong>Num. votes: </strong>
         {movie.ratingCount}
       </p>
-      <MovieFavoriteButton movieId={movie.id} />
-      {/* Otros detalles de la película */}
+      {user && <MovieFavoriteButton movieId={movie.id} />}
     </div>
   );
 };

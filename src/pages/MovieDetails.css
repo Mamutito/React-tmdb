@@ -1,20 +1,27 @@
 .movie-details {
-    background-color: #f9f9f9;
+    background: linear-gradient(180deg, #307e6c, #2b996d);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    max-width: 1000px;
+    margin:  0 auto;
     display: flex;
   }
   
   .movie-image {
     width: 30%;
     margin-right: 20px;
+    
   }
   
   .movie-image img {
     width: 100%;
     border-radius: 5px;
+  }
+
+  .favorite-movie {
+    box-shadow: 0 0 10px yellow;
   }
   
   .movie-info {

@@ -1,0 +1,29 @@
+.movie-rating {
+    background-color: #175841;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .movie-rating select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .movie-rate button{
+    background-color: #ff5900;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .movie-rate button:hover {
+    background-color: #e75608;
+  }

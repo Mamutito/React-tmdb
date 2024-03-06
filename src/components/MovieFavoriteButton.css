@@ -1,12 +1,13 @@
 .movie-favorite button {
-    background-color: #007bff;
+    background-color: #ff5900;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
   }
   
   .movie-favorite button:hover {
-    background-color: #0056b3;
+    background-color: #e75608;
   }
