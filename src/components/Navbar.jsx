@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-left">
         <div className="navbar-brand">
-          <NavLink exact to="/" activeClassName="active">
+          <NavLink end to="/">
             The Movie Data Base
           </NavLink>
         </div>

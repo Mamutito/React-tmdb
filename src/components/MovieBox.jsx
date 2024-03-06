@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MovieBox.css";
 
-const API_IMG = "https://image.tmdb.org/t/p/w500/"; //BasePath url
-
 //Get a movie and return a movie box
 function MovieBox({ movie }) {
   return (

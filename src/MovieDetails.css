@@ -1,0 +1,22 @@
+.movie-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .movie-image {
+    width: 30%;
+    margin-right: 20px;
+  }
+  
+  .movie-image img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .movie-info {
+    flex: 1;
+  }

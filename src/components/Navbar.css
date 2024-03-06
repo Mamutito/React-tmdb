@@ -5,8 +5,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(100% - 40px); /* Establece un ancho fijo */
-    position: fixed; /* Mantiene el navbar fijo en la parte superior */
+    width: calc(100% - 40px);
+    position: fixed;
     top:0
   }
   
@@ -41,13 +41,13 @@
   }
   
   .search-bar {
-    display: flex; /* Utiliza flexbox para alinear los elementos del search-bar */
-    align-items: center; /* Centra verticalmente los elementos del search-bar */
+    display: flex;
+    align-items: center;
   }
   
   .search-bar p {
     margin: 0;
-    margin-right: 10px; /* Añade espacio entre el texto "Search:" y el input */
+    margin-right: 10px;
   }
   
   .search-bar input {
