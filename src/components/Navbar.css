@@ -1,0 +1,53 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 40px); /* Establece un ancho fijo */
+    position: fixed; /* Mantiene el navbar fijo en la parte superior */
+    top:0
+  }
+  
+  .navbar-brand a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  .search-bar {
+    display: flex; /* Utiliza flexbox para alinear los elementos del search-bar */
+    align-items: center; /* Centra verticalmente los elementos del search-bar */
+  }
+  
+  .search-bar p {
+    margin: 0;
+    margin-right: 10px; /* Añade espacio entre el texto "Search:" y el input */
+  }
+  
+  .search-bar input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+  }

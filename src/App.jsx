@@ -1,31 +1,25 @@
-import { useEffect, useState } from "react";
+import Home from "./Home";
 import "./App.css";
-import { popularMovies } from "./services/movies";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Favorite from "./Favorite";
+import Login from "./Login";
+import MovieDetail from "./MovieDetail";
 
-const API_IMG = "https://image.tmdb.org/t/p/w500/";
-function App() {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    popularMovies(setMovies);
-  }, []);
+const App = () => {
   return (
-    <div className="container">
-      <h1>Popular Movies</h1>
-      <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <img src={API_IMG + movie.image} alt={movie.title} />
-            <div className="movie-info">
-              <h2>{movie.title}</h2>
-              <p>Year: {movie.year}</p>
-              <p>Popularity: {movie.popularity}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Navbar />
+      <div className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorite />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/movie:id" element={<MovieDetail />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

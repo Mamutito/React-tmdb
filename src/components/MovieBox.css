@@ -1,0 +1,27 @@
+
+.movie-box {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(180deg, #307e6c, #2b996d);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .movie-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .movie-info {
+    padding: 10px;
+  }
+  
+  .movie-info h2 {
+    margin: 0;
+  }
+  
+  .movie-info p {
+    margin: 5px 0;
+  }
