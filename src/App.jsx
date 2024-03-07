@@ -6,6 +6,7 @@ import Favorite from "./pages/Favorite";
 import Login from "./pages/Login";
 import MovieDetails from "./pages/MovieDetails";
 import { AuthProvider } from "./auth/AuthContext";
+import SearchResults from "./pages/SearchResults";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/favorites" element={<Favorite />} />
             <Route path="/login" element={<Login />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </div>
       </Router>

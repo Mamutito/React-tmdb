@@ -6,10 +6,11 @@ const MovieInfo = ({ movie, user }) => {
     <div className="movie-info">
       <h2>{movie.title}</h2>
       <p>
-        <strong>Release Date:</strong> {movie.releaseDate}
+        {movie.releaseDate && <strong>Release Date:</strong>}
+        {movie.releaseDate}
       </p>
       <p>
-        <strong>Overview:</strong> {movie.overview}
+        {movie.overview && <strong>Overview:</strong>} {movie.overview}
       </p>
       <p>
         <strong>Rating:</strong> {movie.rating}

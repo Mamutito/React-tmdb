@@ -5,6 +5,7 @@ import "./MovieDetails.css";
 import MovieInfo from "../components/MovieInfo";
 import { useAuth } from "../auth/AuthContext";
 import MovieRating from "../components/MovieRating";
+import noImage from "../assets/no_image_available.svg";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const MovieDetails = () => {
   return (
     <div className={`movie-details ${isMovieFavorite ? "favorite-movie" : ""}`}>
       <div className="movie-image">
-        <img src={movie.image} alt={movie.title} />
+        <img src={movie.image ?? noImage} alt={movie.title} />
       </div>
       <MovieInfo movie={movie} user={sessionId} />
       {sessionId && <MovieRating movie={movie} user={sessionId} />}
