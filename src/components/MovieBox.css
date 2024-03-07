@@ -26,3 +26,10 @@
   .movie-info p {
     margin: 5px 0;
   }
+
+  @media (max-width: 768px) {  
+    .movie-box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }

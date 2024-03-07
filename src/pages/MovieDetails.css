@@ -27,3 +27,16 @@
   .movie-info {
     flex: 1;
   }
+
+  @media screen and (max-width: 768px) {
+    .movie-details{
+      flex-direction: column;
+    }
+    .movie-image{
+      width: 100%;
+    }
+
+    .movie-info{
+      text-align: center;
+    }
+  }

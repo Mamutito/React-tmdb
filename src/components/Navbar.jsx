@@ -1,15 +1,28 @@
-import "./Navbar.css";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import "./Navbar.css";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <nav className="navbar">
-      <div className="navbar-left">
+      {/* Mobile burguer button */}
+      <div className="mobile-menu-toggle" onClick={toggleMenu}>
+        ☰
+      </div>
+      <div className="navbar-left desktop-menu">
         <div className="navbar-brand">
           <NavLink end to="/">
             The Movie Data Base
           </NavLink>
         </div>
+        {/*Main menu */}
         <ul className="navbar-nav">
           <li className="nav-item">
             <NavLink
@@ -44,10 +57,53 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="search-bar">
-        <p>Search:</p>
-        <input type="text" />
-      </div>
+
+      {/* Mobile slide menu */}
+      {showMenu && (
+        <>
+          <ul className="navbar-nav mobile-menu">
+            <li>
+              {" "}
+              <div className="navbar-brand">
+                <NavLink to="/">The Movie Data Base</NavLink>
+              </div>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
+              >
+                Popular
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/favorites"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
+              >
+                Favorites
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
+              >
+                Login
+              </NavLink>
+            </li>
+          </ul>
+        </>
+      )}
+
+      <SearchBar />
     </nav>
   );
 };

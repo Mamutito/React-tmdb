@@ -55,3 +55,46 @@
     border-radius: 5px;
     border: 1px solid #fff;
   }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu-toggle{
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .desktop-menu {
+      display: none;
+    }
+  
+    .mobile-menu-toggle {
+      display: block;
+    }
+  
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      background-color: #3e3e3e;
+      padding: 10px 15px;
+      position: fixed;
+      width: 180px;
+      height: 100vh;
+      top: 47px;
+      left: 0;
+    }
+  
+    .mobile-menu .nav-item {
+      margin: 5px 0;
+    }
+
+    .mobile-menu li {
+      border-bottom: 1px dashed grey;
+      padding: 10px
+    }
+    .mobile-menu .navbar-brand a {
+      font-size: 1rem;
+    }
+  }
+  
