@@ -6,6 +6,7 @@
     background: linear-gradient(180deg, #307e6c, #2b996d);
     border-radius: 10px;
     overflow: hidden;
+    transition: transform 0.3s ease;
   }
   
   .movie-box img {
@@ -25,6 +26,10 @@
   
   .movie-info p {
     margin: 5px 0;
+  }
+  
+  .movie-box:hover{
+    transform: scale(1.1);
   }
 
   @media (max-width: 768px) {  

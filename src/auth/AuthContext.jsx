@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { createSessionId } from "../services/movies";
 
 const AuthContext = createContext();
 
@@ -7,11 +8,7 @@ export const useAuth = () => {
 };
 // We handle favorites and login status here since we cannot log in to tmdb due to lack of time and knowledge.
 export const AuthProvider = ({ children }) => {
-  const [loginSession, setLoginSession] = useState({
-    success: true,
-    guest_session_id: "2402058dca5b869efae0d2b83653b4dd",
-    expires_at: "2024-03-07 15:29:47 UTC",
-  });
+  const [loginSession, setLoginSession] = useState();
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -28,25 +25,27 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const login = () => {
-    setLoginSession({
-      success: true,
-      guest_session_id: "2402058dca5b869efae0d2b83653b4dd",
-      expires_at: "2024-03-07 15:29:47 UTC",
-    });
-    localStorage.setItem(
-      "isLoggedIn",
-      JSON.stringify({
-        success: true,
-        guest_session_id: "2402058dca5b869efae0d2b83653b4dd",
-        expires_at: "2024-03-07 15:29:47 UTC",
-      })
-    );
+  const login = async ({ username, password }) => {
+    setLoginSession();
+    if (username === "admin" && password === "2coders") {
+      const sessionId = await createSessionId();
+      if (sessionId.success) {
+        setLoginSession(sessionId);
+        localStorage.setItem("loginSession", JSON.stringify(sessionId));
+        return sessionId;
+      } else {
+        return { ...sessionId, errorMessage: "Something wrong happen..." };
+      }
+    } else
+      return {
+        success: false,
+        errorMessage: "Username or password are incorrect",
+      };
   };
 
   const logout = () => {
-    setLoginSession({});
-    localStorage.setItem("isLoggedIn", JSON.stringify({}));
+    setLoginSession(undefined);
+    localStorage.removeItem("loginSession");
   };
 
   const addToFavorites = (movieId) => {

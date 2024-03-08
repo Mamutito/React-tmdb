@@ -14,17 +14,20 @@ const MovieDetails = () => {
     getMovie(id, setMovie); //Get data from API using Movie ID
   }, []);
   const { isFavorite, loginSession } = useAuth();
-  const { guest_session_id: sessionId } = loginSession;
-  console.log(loginSession);
+
   const isMovieFavorite = isFavorite(movie.id);
 
   return (
-    <div className={`movie-details ${isMovieFavorite ? "favorite-movie" : ""}`}>
+    <div
+      className={`movie-details ${
+        isMovieFavorite && loginSession ? "favorite-movie" : ""
+      }`}
+    >
       <div className="movie-image">
         <img src={movie.image ?? noImage} alt={movie.title} />
       </div>
-      <MovieInfo movie={movie} user={sessionId} />
-      {sessionId && <MovieRating movie={movie} user={sessionId} />}
+      <MovieInfo movie={movie} user={loginSession} />
+      {loginSession && <MovieRating movie={movie} user={loginSession} />}
     </div>
   );
 };

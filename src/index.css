@@ -15,11 +15,13 @@
 
 a {
   font-weight: 500;
-  color: #307e6c;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
   color: #2b996d;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 body {

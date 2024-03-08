@@ -2,9 +2,9 @@ const API_KEY = '7949795c1c6ccb9b9faab288342d1c32' //TMDB API KEY
 const API_IMG = "https://image.tmdb.org/t/p/w500/"; //BasePath url
 const ACCESS_TOKEN_AUTH = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTQ5Nzk1YzFjNmNjYjliOWZhYWIyODgzNDJkMWMzMiIsInN1YiI6IjY1ZTdiNTgwOTYzODY0MDE0NmM3Zjk4NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.F-3k7fTWo_boaye42PoDWqAF0kPZhHTjR0eewRZRz34";
 
+// Get movies by search query
 export const searchMovies = async (search, setMovies) => {
   if (search === '') return null
-  console.log('search',search)
   try {
     const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`)
     const json = await response.json()
@@ -23,6 +23,7 @@ export const searchMovies = async (search, setMovies) => {
   }
 }
 
+// Get last popular movies
 export const trendingMovies = async (setMovies) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
@@ -42,6 +43,7 @@ export const trendingMovies = async (setMovies) => {
     }
   }
 
+  // Get a movie bt MovieID
   export const getMovie = async (id, setMovie) => {
     try {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
@@ -62,6 +64,8 @@ export const trendingMovies = async (setMovies) => {
       throw new Error('Error getting the movie')
     }
   }
+
+  // Send a POST with the Rating value, SessionId and movieID
   export const sendRating = async (id, user, rating) => {
       const options = {
         method: 'POST',
@@ -82,3 +86,14 @@ export const trendingMovies = async (setMovies) => {
         throw new Error('Error sending rating');
       }
     };
+    
+    // Get a guest session ID
+    export const createSessionId = async () => {
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${API_KEY}`)
+        const user = await response.json()
+        return user;
+      } catch (e) {
+        throw new Error('Error getting a guest session id')
+      }
+    }

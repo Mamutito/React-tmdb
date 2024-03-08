@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import SearchBar from "./SearchBar";
+import { useAuth } from "../auth/AuthContext";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
-
+  const { loginSession, logout } = useAuth();
+  console.log("loginSession", loginSession);
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -35,25 +37,31 @@ const Navbar = () => {
               Popular
             </NavLink>
           </li>
+          {loginSession && (
+            <li className="nav-item">
+              <NavLink
+                to="/favorites"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
+              >
+                Favorites
+              </NavLink>
+            </li>
+          )}
           <li className="nav-item">
-            <NavLink
-              to="/favorites"
-              className={({ isActive }) =>
-                "nav-link" + (isActive ? " active" : "")
-              }
-            >
-              Favorites
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                "nav-link" + (isActive ? " active" : "")
-              }
-            >
-              Login
-            </NavLink>
+            {loginSession ? (
+              <a onClick={logout}>Logout</a>
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  "nav-link" + (isActive ? " active" : "")
+                }
+              >
+                {}Login
+              </NavLink>
+            )}
           </li>
         </ul>
       </div>
@@ -79,25 +87,31 @@ const Navbar = () => {
                 Popular
               </NavLink>
             </li>
+            {loginSession && (
+              <li className="nav-item">
+                <NavLink
+                  to="/favorites"
+                  className={({ isActive }) =>
+                    "nav-link" + (isActive ? " active" : "")
+                  }
+                >
+                  Favorites
+                </NavLink>
+              </li>
+            )}
             <li className="nav-item">
-              <NavLink
-                to="/favorites"
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
-                Favorites
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  "nav-link" + (isActive ? " active" : "")
-                }
-              >
-                Login
-              </NavLink>
+              {loginSession ? (
+                <a onClick={logout}>Logout</a>
+              ) : (
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    "nav-link" + (isActive ? " active" : "")
+                  }
+                >
+                  Login'
+                </NavLink>
+              )}
             </li>
           </ul>
         </>

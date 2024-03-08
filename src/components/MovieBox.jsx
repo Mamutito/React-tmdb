@@ -5,7 +5,6 @@ import noImage from "../assets/no_image_available.svg";
 
 //Get a movie and return a movie box
 function MovieBox({ movie }) {
-  console.log(movie.image ?? noImage);
   return (
     <li key={movie.id} className="movie-box">
       <Link to={`/movie/${movie.id}`}>

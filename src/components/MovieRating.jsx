@@ -22,7 +22,7 @@ const MovieRating = ({ movie, user }) => {
 
   const handleRateSubmit = () => {
     // Send to the API rating value
-    sendRating(movie.id, user, rating)
+    sendRating(movie.id, user.guest_session_id, rating)
       .then(() => {
         showToastMessage("Rating Sucess");
       })
