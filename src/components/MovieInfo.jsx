@@ -6,7 +6,7 @@ const MovieInfo = ({ movie, user }) => {
     <div className="movie-info">
       <h2>{movie.title}</h2>
       <p>
-        {movie.releaseDate && <strong>Release Date:</strong>}
+        {movie.releaseDate && <strong>Release Date: </strong>}
         {movie.releaseDate}
       </p>
       <p>
@@ -19,7 +19,7 @@ const MovieInfo = ({ movie, user }) => {
         <strong>Num. votes: </strong>
         {movie.ratingCount}
       </p>
-      {user && <MovieFavoriteButton movieId={movie.id} />}
+      {user && <MovieFavoriteButton movie={movie} />}
     </div>
   );
 };

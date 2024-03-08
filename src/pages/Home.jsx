@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./Home.css";
 import { trendingMovies } from "../services/movies";
 import MovieBox from "../components/MovieBox";
 

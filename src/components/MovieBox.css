@@ -1,7 +1,6 @@
 
 .movie-box {
     width: calc(33.33% - 20px);
-    margin-bottom: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: linear-gradient(180deg, #307e6c, #2b996d);
     border-radius: 10px;

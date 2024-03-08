@@ -7,14 +7,13 @@ import { useAuth } from "../auth/AuthContext";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { loginSession, logout } = useAuth();
-  console.log("loginSession", loginSession);
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
   return (
     <nav className="navbar">
-      {/* Mobile burguer button */}
+      {/* Mobile burger button */}
       <div className="mobile-menu-toggle" onClick={toggleMenu}>
         ☰
       </div>

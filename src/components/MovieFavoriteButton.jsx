@@ -1,15 +1,15 @@
 import "./MovieFavoriteButton.css";
 import { useAuth } from "../auth/AuthContext";
 
-const MovieFavoriteButton = ({ movieId }) => {
+const MovieFavoriteButton = ({ movie }) => {
   const { addToFavorites, removeFromFavorites, isFavorite } = useAuth();
-  const movieIsFavorite = isFavorite(movieId);
+  const movieIsFavorite = isFavorite(movie.id);
 
   const toggleFavorite = () => {
     if (movieIsFavorite) {
-      removeFromFavorites(movieId);
+      removeFromFavorites(movie.id);
     } else {
-      addToFavorites(movieId);
+      addToFavorites(movie);
     }
     // Send to the api the petition using the movieId
   };

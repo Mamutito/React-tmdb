@@ -48,21 +48,23 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("loginSession");
   };
 
-  const addToFavorites = (movieId) => {
+  const addToFavorites = (movie) => {
     setFavorites((prevFavorites) => {
-      const newFavorites = [...prevFavorites, movieId];
+      const newFavorites = [...prevFavorites, movie];
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
       return newFavorites;
     });
   };
 
   const isFavorite = (movieId) => {
-    return favorites.includes(movieId);
+    return favorites.some((movie) => movie.id === movieId);
   };
 
   const removeFromFavorites = (movieId) => {
     setFavorites((prevFavorites) => {
-      const newFavorites = prevFavorites.filter((id) => id !== movieId);
+      const newFavorites = prevFavorites.filter(
+        (movie) => movie.id !== movieId
+      );
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
       return newFavorites;
     });
